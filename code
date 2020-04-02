@@ -1,0 +1,57 @@
+<?php
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ * ---
+ * Hint: You can use the debug stream to print initialTX and initialTY, if Thor seems not follow your orders.
+ **/
+
+// $lightX: the X position of the light of power
+// $lightY: the Y position of the light of power
+// $initialTx: Thor's starting X position
+// $initialTy: Thor's starting Y position
+fscanf(STDIN, "%d %d %d %d", $lightX, $lightY, $initialTx, $initialTy);
+$thorY = $initialTy;
+$thorX = $initialTx;
+// game loop
+while (TRUE)
+{
+     fscanf(STDIN, "%d", $remainingTurns);// $remainingTurns: The remaining amount of turns Thor can move. Do not remove this line.
+    
+    $movementX = "";
+    $movementY = "";
+    
+    if($thorY>$lightY) {
+        
+        $movementY = "N";
+        $thorY--;
+    }
+    elseif($thorY<$lightY) 
+    {
+        $movementY = "S";
+        $thorY++;
+    }
+    
+    
+    if($thorX>$lightX) {
+        
+        $movementX = "W";
+        $thorX--;
+    }
+    elseif($thorX<$lightX) 
+    {
+        $movementX = "E";
+        $thorX++;
+    }
+    
+    
+
+
+    // Write an action using echo(). DON'T FORGET THE TRAILING \n
+    // To debug (equivalent to var_dump): error_log(var_export($var, true));
+
+
+    // A single line providing the move to be made: N NE E SE S SW W or NW
+    echo ($movementY .$movementX ."\n");
+}
+?>
